@@ -1,0 +1,65 @@
+:root {
+  color-scheme: dark;
+  --ink: #10161c;
+  --panel: #19232b;
+  --line: #3d4b52;
+  --text: #f4ead8;
+  --soft: #b6c0be;
+  --gold: #eac384;
+  --teal: #a9dcd2;
+  font: 16px/1.55 system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--text); background: var(--ink); }
+[hidden] { display: none !important; }
+.topbar, footer { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem max(5vw, calc((100vw - 74rem) / 2)); }
+.topbar { min-height: 70px; border-bottom: 1px solid var(--line); }
+.brand, .eyebrow, footer { font: 700 .75rem/1.4 ui-monospace, monospace; letter-spacing: .14em; }
+.brand { color: var(--gold); display: flex; align-items: center; gap: .65rem; }
+.brand span { font-size: 1.55rem; }
+.brand small { color: var(--soft); font-size: .66rem; }
+footer { color: var(--soft); border-top: 1px solid var(--line); }
+main { max-width: 74rem; margin: auto; padding: clamp(1rem, 4vw, 3rem); min-height: calc(100vh - 125px); }
+main:focus { outline: none; }
+h1, h2 { font-family: Georgia, serif; font-weight: normal; line-height: 1.08; margin: 0 0 .65em; }
+h1 { font-size: clamp(2.4rem, 7vw, 5.6rem); letter-spacing: -.04em; }
+h2 { font-size: clamp(1.45rem, 4vw, 2rem); }
+p { margin: 0 0 .9rem; }
+.eyebrow { color: var(--gold); text-transform: uppercase; margin-bottom: .85rem; }
+.lead { max-width: 55ch; color: var(--soft); font-size: 1.1rem; }
+.hero, .stage { position: relative; isolation: isolate; overflow: hidden; border: 1px solid var(--line); background: #261e1c url("courtroom.png") center 47% / cover; }
+.hero::before, .stage::before { position: absolute; inset: 0; content: ""; z-index: -1; background: linear-gradient(90deg, #10161cf5 5%, #10161cb8 52%, #10161c30); }
+.hero { min-height: min(35rem, 75vh); display: grid; align-items: center; padding: clamp(1.35rem, 6vw, 5rem); }
+.hero h1 { max-width: 12ch; }
+.hero .continue { margin-top: .8rem; }
+.screen { max-width: 49rem; margin: auto; }
+.screen h1, .hearing h1 { font-size: clamp(2rem, 5vw, 3.6rem); }
+.progress { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: .8rem; margin-bottom: 1.25rem; color: var(--soft); font-size: .8rem; }
+progress { width: 100%; height: .45rem; accent-color: var(--gold); }
+.stage { min-height: 180px; display: flex; flex-wrap: wrap; justify-content: center; align-items: end; gap: .65rem; padding: 1rem; margin-bottom: 1rem; }
+.stage::before { background: linear-gradient(0deg, #10161cdb, #10161c22); }
+.stage[data-chapter="THE PUBLIC JUDGES YOU"]::before { background: linear-gradient(0deg, #152535eb, #23344e40); }
+.stage[data-chapter="THE CONSEQUENCES"]::before { background: linear-gradient(0deg, #153832eb, #20423b30); }
+figure { margin: 0; text-align: center; }
+figure canvas { width: 84px; height: 84px; image-rendering: pixelated; display: block; margin: auto; background: #152129; border: 1px solid #94a9a660; }
+figcaption { padding: .35rem .45rem; color: var(--text); background: #10161ce8; font-size: .75rem; }
+.columns { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 1rem; }
+.box { background: var(--panel); border: 1px solid var(--line); padding: clamp(1rem, 3vw, 1.6rem); margin-bottom: 1rem; }
+.box p:last-child { margin-bottom: 0; }
+button { font: inherit; cursor: pointer; }
+.continue { border: 1px solid var(--gold); color: #201b15; font-weight: 700; background: var(--gold); padding: .7rem 1.1rem; }
+.quiet { border: 1px solid var(--line); background: var(--ink); color: var(--soft); padding: .45rem .7rem; }
+.options { display: grid; gap: .6rem; }
+.option { width: 100%; display: grid; grid-template-columns: 1.9rem 1fr; gap: .65rem; text-align: left; align-items: start; background: #111a20; border: 1px solid var(--line); padding: .65rem; color: var(--text); }
+.option .letter { text-align: center; color: var(--gold); font-weight: 750; background: #eac38419; }
+.option:hover, .quiet:hover { border-color: var(--gold); }
+.continue:hover { background: #ffdb9f; }
+button:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+blockquote { margin: 1rem 0; padding: .65rem 1rem; border-left: 3px solid var(--gold); color: var(--teal); }
+.cast-grid { display: flex; gap: 1rem; flex-wrap: wrap; }
+details summary { cursor: pointer; color: var(--gold); }
+@media (max-width: 700px) {
+  .columns { grid-template-columns: 1fr; gap: 0; }
+  .brand small { display: none; }
+  footer { font-size: .62rem; }
+}
